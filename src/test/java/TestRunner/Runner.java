@@ -8,7 +8,7 @@ import io.cucumber.junit.CucumberOptions;
 
 @RunWith(Cucumber.class)
 @CucumberOptions(
-        features = "src\\test\\resources\\features\\Absa_Assessment.feature",
+        features = "src\\test\\resources\\features\\Web.feature",
         glue = "StepDefinitions",
         plugin =
                 {
@@ -16,6 +16,7 @@ import io.cucumber.junit.CucumberOptions;
                 "html:target/cucumber-reports/cucumber-pretty",
                 "json:target/cucumber-reports/CucumberTestReport.json"
                  }
+
 )
 
 public class Runner

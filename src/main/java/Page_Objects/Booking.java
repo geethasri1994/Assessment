@@ -1,9 +1,6 @@
 package Page_Objects;
 
-import org.openqa.selenium.Alert;
-import org.openqa.selenium.Keys;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.pagefactory.AjaxElementLocatorFactory;
@@ -18,35 +15,37 @@ public class Booking
         PageFactory.initElements(driver, this);
     }
 
-    @FindBy(xpath="//input[@id='txt-username']")
-    public static  WebElement Username;
+    @FindBy(xpath="//button[@type='add']")
+    public static WebElement Add_USer;
 
-    @FindBy(xpath="//input[@id='txt-password']")
-    public static  WebElement Password;
+    @FindBy(xpath="//input[@name='FirstName']")
+    public static WebElement FirstName;
 
-    @FindBy(xpath="//*[@id=\"btn-login\"]")
-    public static  WebElement Login;
+    @FindBy(xpath="//input[@name='LastName']")
+    public static WebElement LastNAme;
 
-    @FindBy(xpath="//*[@id=\"combo_facility\"]")
-    public static  WebElement Facility;
+    @FindBy(xpath="//input[@name='UserName']")
+    public static WebElement UserName;
 
-    @FindBy(xpath="//*[@id=\"chk_hospotal_readmission\"]")
-    public static  WebElement Readmission;
+    @FindBy(xpath="//input[@name='Password']")
+    public static WebElement Password;
 
-    @FindBy(xpath="//*[@id=\"radio_program_none\"]")
-    public static  WebElement Program;
+    @FindBy(xpath="//input[@name='optionsRadios']")
+    public static WebElement Radio;
 
-    @FindBy(xpath="//*[@id=\"txt_visit_date\"]")
-    public static  WebElement Date;
+    @FindBy(xpath="/html/body/div[2]/div[2]/form/table/tbody/tr[5]/td[2]/label[2]/input")
+    public static WebElement Radio2;
 
-    @FindBy(xpath="//*[@id=\"txt_comment\"]")
-    public static  WebElement Comment;
+    @FindBy(xpath="//select[@name='RoleId']")
+    public static WebElement Role;
 
-    @FindBy(xpath="//*[@id=\"btn-book-appointment\"]")
-    public static  WebElement Book;
+    @FindBy(xpath="//input[@name='Email']")
+    public static WebElement Email;
 
-    @FindBy(xpath="//*[@id=\"facility\"]")
-    public static  WebElement Facility_Name;
+    @FindBy(xpath="//input[@name='Mobilephone']")
+    public static WebElement Mobilephone;
 
+    @FindBy(xpath="//button[text()='Save']")
+    public static WebElement Save;
 
 }
