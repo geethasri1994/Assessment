@@ -12,6 +12,7 @@ import org.openqa.selenium.support.ui.Select;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.Calendar;
 
 public class CommonUtil {
     //static Logger LOG = Logger.getLogger(CommonUtil.class);
@@ -143,7 +144,8 @@ public class CommonUtil {
         }
     }
 
-    private static String getScreenshotsPath() {
+    private static String getScreenshotsPath()
+    {
         String workingDirectory = System.getProperty("user.dir");
         String screenshotPath = System.getProperty("webdriver.screenshotspath");
         if (screenshotPath == null) {
@@ -153,6 +155,25 @@ public class CommonUtil {
         return workingDirectory + File.separator + screenshotPath;
     }
 
+    public synchronized String addScreenshots(){
+       // WebDriver webDriver = Browser.getDriver();
+        Long l = Calendar.getInstance().getTimeInMillis();
+        String screenshotId = l.toString();
+        String Path = System.getProperty("user.dir")+"/ExtentReports/";
 
+        File screenshot = (File)((TakesScreenshot)this.driver).getScreenshotAs(OutputType.FILE);
+        String imgPath = Path+screenshotId+".png";
+
+        File dest = new File(imgPath);
+        try {
+            FileUtils.copyFile(screenshot, dest);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        String ImagePath = "../ExtentReports/"+screenshotId+".png";
+
+        return ImagePath;
+    }
 
 }
